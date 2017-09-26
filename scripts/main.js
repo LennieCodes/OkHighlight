@@ -1,6 +1,7 @@
 
 function scanProfile(keywords) {
-  const keywordArr = keywords.split(',');
+  const keywordArr = keywords.trim().split(/\s*,\s*/);
+  
   let regExpArr = [];
   for (let i = 0; i < keywordArr.length; i++) {
     // potential error here - need to match any part of word that matches keyword - not exact.
@@ -9,28 +10,17 @@ function scanProfile(keywords) {
 
   $('.essays2015-essay-content').each(function() {
     
-    let content = $(this).html().split(" ");
-    content = highlightContent(content, regExpArr);
-    $(this).html(content.join(" ")); // sketchy
+    let content = $(this).html();
+    
+    for (let i = 0; i < regExpArr.length; i++) {
+      content = content.replace(regExpArr[i], function(match) {
+        return "<span style='background:#FFFF00;'>" + match + "</span>"  
+      });
+    }
+
+    $(this).html(content);
 
   });
-}
-
-function highlightContent(textArr, regExpArr) {
-  if (!textArr || !regExpArr) {
-    console.error('Text passed into highlightContent is empty, or no keywords specified');
-    return;
-  }
-
-  for (let i = 0; i < textArr.length; i++) {
-    for (let j = 0; j < regExpArr.length; j++) {
-      if (textArr[i].match(regExpArr[j])) {
-        textArr[i] = "<span style='background:#FFFF00;'>" + text[i] + "</span>";
-        j = regExpArr.length; // break for loop. 
-      }
-    }
-  }
-  return textArr;
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
