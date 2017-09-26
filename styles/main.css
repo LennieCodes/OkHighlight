@@ -1,0 +1,28 @@
+.size {
+  width: 400px;
+  padding: 15px;
+}
+
+body {
+  background: #f0f0f0;
+}
+
+.box {
+  background: #fff;
+  padding: 15px;
+  margin: 10px 10px 10px 10px;
+  border: 1px solid rgba(0,0,0,.15);
+  /*border-top: 0;*/
+  box-shadow: 0 1px 0 rgba(0,0,0,.05);
+  box-sizing: border-box;
+}
+
+td, th {
+  text-align: center;
+}
+
+.messageBox {
+  font-weight:bold;
+  float:right;
+  margin-top:8px;
+}

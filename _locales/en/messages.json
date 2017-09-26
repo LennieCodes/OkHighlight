@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "OkHighlight",
+    "description": "A Profile Keyword Highlighter for OkCupid."
+  },
+  "appDescription": {
+    "message": "A Profile Keyword Highlighter for OkCupid.",
+    "description": "The description of the application"
+  }
+}
