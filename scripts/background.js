@@ -1,7 +1,8 @@
 'use strict';
 
-const cupid = {
+var cupid = {
   keywords: '',
+  isActive: false
 };
 
 
@@ -14,7 +15,7 @@ cupid.checkIfCupid = function(tabId) {
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-  if (request.type == 'profile') {
+  if (request.type == 'profile' && cupid.isActive && cupid.keywords.length > 0) {
     cupid.scanProfile(sender.tab.id);
   }
 });
