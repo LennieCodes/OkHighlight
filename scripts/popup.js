@@ -2,9 +2,41 @@
 
 var bg = chrome.extension.getBackgroundPage();
 
+bg.cupid.isActive ? activatePlugin() : deactivatePlugin();
 
-$('#watch').click(function() {
+$('#activate').click(function() {
     bg.cupid.keywords = $('#keywordBox').val();
-    bg.cupid.isActive = true;
+    if (bg.cupid.keywords.length === 0) {
+        $('.error').show();
+        return;
+    }
+    activatePlugin();
 });
+
+$('#deactivate').click(function() {
+    deactivatePlugin();
+})
+
+function activatePlugin() {  
+    bg.cupid.isActive = true;
+    $('.error').hide();
+    $('.keywords').text(bg.cupid.keywords);
+
+    $('.plugin-inactive').hide();
+    $('#activate').hide();
+
+    $('.plugin-active').show();
+    $('#deactivate').show();
+}
+
+function deactivatePlugin() {
+    bg.cupid.isActive = false;
+    $('#keywordBox').val(bg.cupid.keywords);
+
+    $('.plugin-active').hide();
+    $('#deactivate').hide();
+
+    $('.plugin-inactive').show();
+    $('#activate').show();
+}
 

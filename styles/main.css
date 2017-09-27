@@ -1,10 +1,25 @@
+body {
+  background: #f0f0f0;
+}
+
+td, th {
+  text-align: center;
+}
+
+#activate, #deactivate {
+  float: right;
+  top: 7px;
+  right: 15px;
+  position: relative;
+}
+
 .size {
   width: 400px;
   padding: 15px;
 }
 
-body {
-  background: #f0f0f0;
+.highlight-nav {
+  margin-bottom:0;
 }
 
 .box {
@@ -17,12 +32,20 @@ body {
   box-sizing: border-box;
 }
 
-td, th {
-  text-align: center;
+.error {
+  margin-top:5px;
+  color:#f0ad4e;
+  font-weight: bold;
 }
 
-.messageBox {
-  font-weight:bold;
-  float:right;
-  margin-top:8px;
+.keyword-container {
+  margin:10px 0;
+  max-height: 250px;
+  overflow-y:scroll;
 }
+
+.btn {
+  outline:none !important;
+}
+
+

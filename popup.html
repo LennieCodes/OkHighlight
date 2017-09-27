@@ -8,23 +8,46 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <nav class="navbar navbar-default highlight-nav" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <a class="navbar-brand">OkHighlight</a>
+      <button id="activate" class="btn btn-success pull-right">Activate</button>
+      <button id="deactivate" class="btn btn-warning pull-right">Deactivate</button>
     </div>
   </nav>
   <div class="container size">
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 plugin-inactive">
         <div class="form-group">
-          <!--TODO: SET FORM VALIDATION HERE -->
-          <label for="keywordBox">Please Enter The Keywords I should watch out for in the box below</label>
-          <textarea id="keywordBox" name="keywordBox"></textarea>
+          <p>
+            Please enter keywords or phrases that you'd like me to look for in a profile with a comma
+            separating each keyword or phrase. 
+          </p>
+          <p>
+            When you are finished, press "Activate". I will highlight any keywords I come across
+            in the profiles you visit! 
+          </p>
+          <label for="keywordBox">Enter Keywords or Phrases:</label>
+          <textarea class="form-control" id="keywordBox" name="keywordBox" placeholder="Hopelessly Romantic, Soulmate, Dreamer, Bacon, pants"></textarea>
+          <div class="error" style="display:none;">Textbox cannot be left blank!</div>
         </div>
-        <button id="watch" class="btn btn-primary">Watch</button>
+        
       </div>
+      <div class="col-md-12 plugin-active">
+        <b>Currently looking out for the following list of keywords and phrases:</b>
+        <div class="keyword-container">
+            <blockquote class="keywords"></blockquote>
+        </div>
+
+        <p><b>Go get em tiger (or... tigress)!</b></p>
+        <p>Press Deactivate if you need to make changes to your list of keywords and phrases, 
+          or if want me to stop highlighting.</p>
+        
+          
+      </div>
+
     </div>
 
   </div>
