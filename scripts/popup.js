@@ -27,6 +27,15 @@ function activatePlugin() {
 
     $('.plugin-active').show();
     $('#deactivate').show();
+
+    // BROKEN
+    // chrome.tabs.query({}, function(tabs) {
+    //     for (let i = 0; i < tabs.length; i++) {
+    //         console.log(tabs[i]);
+    //         bg.cupid.checkIfCupid(tabs[i].id);
+    //     }
+    // })
+
 }
 
 function deactivatePlugin() {
