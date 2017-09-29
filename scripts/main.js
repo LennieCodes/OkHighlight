@@ -1,11 +1,16 @@
 
 function scanProfile(keywords) {
+
+  // temp fix because tabs.onUpdated fires twice even when complete occasionally.
+  if ($('li.okhighlight').length !== 0) {
+    return;
+  }
+
   const keywordArr = keywords.trim().split(/\s*,\s*/);
   
   let regExpArr = [];
   let keywordMap = [];
   for (let i = 0; i < keywordArr.length; i++) {
-    // potential error here - need to match any part of word that matches keyword - not exact.
     regExpArr.push(new RegExp(keywordArr[i], "ig"));
   }
 
@@ -26,8 +31,8 @@ function scanProfile(keywords) {
 
   });
 
-  $('.nav-left ul.nav-links').append('<li><a>Keywords Found: ' + keywordMap.length + '</a></li>');
-
+  $('.nav-left ul.nav-links').append('<li class=\'okhighlight\'><a>Keywords Found: ' + keywordMap.length + '</a></li>');
+  
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
