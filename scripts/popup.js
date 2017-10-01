@@ -22,7 +22,7 @@ $('#activate').click(function() {
 
 $('#deactivate').click(function() {
     deactivatePlugin();
-})
+});
 
 function activatePlugin() {  
     bg.cupid.isActive = true;
