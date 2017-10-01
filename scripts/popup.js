@@ -2,6 +2,13 @@
 
 var bg = chrome.extension.getBackgroundPage();
 
+const placeholders = [
+    'Anakin Skywalker, Luke Skywalker, Darth Vader, Yoda, May the force be with you',
+    'Quidditch, Hufflepuff, Cedric Diggory, Hogwarts, Broomsticks',
+    'Improv, Sports, Hiking, Biking, Singing in the shower, Dancing in the rain',
+    'Seamless, Tacos, Pants, Bill Murray, Bacon, Netflix, Soulmate',    
+];
+
 bg.cupid.isActive ? activatePlugin() : deactivatePlugin();
 
 $('#activate').click(function() {
@@ -27,25 +34,24 @@ function activatePlugin() {
 
     $('.plugin-active').show();
     $('#deactivate').show();
-
-    // BROKEN
-    // chrome.tabs.query({}, function(tabs) {
-    //     for (let i = 0; i < tabs.length; i++) {
-    //         console.log(tabs[i]);
-    //         bg.cupid.checkIfCupid(tabs[i].id);
-    //     }
-    // })
-
 }
 
 function deactivatePlugin() {
     bg.cupid.isActive = false;
+
     $('#keywordBox').val(bg.cupid.keywords);
+    $('#keywordBox').attr('placeholder', getPlaceholder());
 
     $('.plugin-active').hide();
     $('#deactivate').hide();
 
     $('.plugin-inactive').show();
     $('#activate').show();
+
+}
+
+function getPlaceholder() {
+    const index = Math.floor(Math.random() * placeholders.length);
+    return placeholders[index];
 }
 

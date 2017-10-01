@@ -13,6 +13,10 @@ td, th {
   position: relative;
 }
 
+#keywordBox {
+  height: 130px;
+}
+
 .size {
   width: 400px;
   padding: 15px;
