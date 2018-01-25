@@ -14,7 +14,7 @@ function scanProfile(keywords) {
     regExpArr.push(new RegExp(keywordArr[i], "ig"));
   }
 
-  $('.essays2015-essay-content').each(function() {
+  $('.profile-essay').each(function() {
     
     let content = $(this).html();
     
